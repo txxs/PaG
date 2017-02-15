@@ -1,6 +1,6 @@
 package com.lemain.controller;
 
-import com.lemain.domain.Info;
+import com.lemain.domain.User;
 import com.lemain.util.HttpClientUtil;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
@@ -31,7 +31,7 @@ public class FrontController {
 
     @RequestMapping(value = "/postInfo", method = RequestMethod.POST)
     @ResponseBody
-    public String handlPost(@RequestParam String name,@RequestBody Info info)throws Exception{
+    public String handlPost(@RequestParam String name,@RequestBody User info)throws Exception{
         log.debug("postman进入FrontControllerd的post，参数是{}和{}",name,info);
         final JSONObject jsonObject = JSONObject.fromObject(info);
         String result= HttpClientUtil.post(serverPostUrl,null,null,null,1000);
