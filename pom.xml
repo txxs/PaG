@@ -24,6 +24,12 @@
 
     <!--仓库-->
     <repositories>
+        <!--外部大库-->
+        <repository>
+            <id>my-alternate-repository</id>
+            <url>http://myrepo.net/repo</url>
+        </repository>
+
         <repository>
             <id>letv-nexus-releases</id>
             <name>letv-nexus-releases</name>
@@ -47,16 +53,19 @@
     </repositories>
 
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!--<exclusions>-->
-            <!--<exclusion>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-            <!--</exclusion>-->
-            <!--</exclusions>-->
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

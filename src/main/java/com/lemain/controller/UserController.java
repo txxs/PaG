@@ -1,9 +1,11 @@
 package com.lemain.controller;
 
 import com.lemain.domain.User;
+import com.lemain.iservice.IUserService;
 import com.lemain.util.HttpClientUtil;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -13,9 +15,12 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Created by jianghuimin on 2017/1/18.
  */
 @RestController
-public class FrontController {
+public class UserController {
 
-    private static final Logger log = getLogger(FrontController.class);
+    @Autowired
+    private IUserService userService;
+
+    private static final Logger log = getLogger(UserController.class);
 
     private String serverGetUrl = "http://localhost:8080/serverGet";
 
@@ -25,8 +30,9 @@ public class FrontController {
     @ResponseBody
     public String handGet(@PathVariable final int id){
         log.debug("postman进入FrontController的get,参数是{}",id);
-        int idcontroller =id;
-        return null;
+        User user = new User();
+        user = userService.findUserById(id);
+        return user.toString();
     }
 
     @RequestMapping(value = "/postInfo", method = RequestMethod.POST)

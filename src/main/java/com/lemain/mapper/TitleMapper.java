@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
  * Created by txxs on 2017/2/1.
  */
 @Mapper
-public interface UserMapper {
+public interface TitleMapper {
     User findUserById(Integer id);
 }

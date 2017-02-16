@@ -5,13 +5,16 @@
 <mapper namespace = "com.lemain.mapper.UserMapper">
     <resultMap id = "result" type = "com.lemain.domain.User">
         <result property = "id" column = "id"/>
-        <result property = "phoneNum" column = "phone_num"/>
-        <result property = "passWord" column = "pass_word"/>
-        <result property = "headPic" column = "head_pic"/>
-        <result property = "sex" column = "sex"/>
-        <result property = "age" column = "age"/>
+        <result property = "lat" column = "lat"/>
+        <result property = "lon" column = "lon"/>
+        <result property = "userId" column = "user_id"/>
+        <result property = "tcontent" column = "tcontent"/>
+        <result property = "length" column = "length"/>
+        <result property = "supportNum" column = "support_num"/>
+        <result property = "conmentNum" column = "conment_num"/>
+
     </resultMap>
     <select id = "findUserById" resultMap = "result">
-        SELECT * FROM user where id = #{id};
+        SELECT * FROM title where id = #{id};
     </select>
 </mapper>
